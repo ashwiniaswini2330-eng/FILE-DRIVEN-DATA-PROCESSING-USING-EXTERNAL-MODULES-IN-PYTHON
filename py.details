@@ -1,0 +1,73 @@
+1. Project Title :
+File-Driven Data Processing Application Using External Modules in Python.
+
+2. Problem Statement :
+To design and implement a Python program that reads data from a file, processes it using external modules, and displays the results.
+
+3. Objective :
+• To understand file handling in Python.
+• To use external modules in Python programs.
+• To process and analyze data from files.
+• To improve modular programming skills.
+
+4. Tools Used :
+• Python 3
+• VS Code / IDLE
+• External Modules (math, csv)
+
+5. Description :
+This project demonstrates how to read numerical data from a file and process it using external Python modules. The program reads values from a CSV file, calculates the sum, average, and square root of numbers using the math module, and displays the results. This shows how file-driven applications work in real-world scenarios.
+
+6. Algorithm :
+1.	Start the program. 
+2.	Import required modules (math, csv). 
+3.	Open the CSV file. 
+4.	Read numbers from the file. 
+5.	Store values in a list. 
+6.	Calculate sum and average. 
+7.	Use math module to find square root. 
+8.	Display results. 
+9.	Stop the program. 
+
+7. Program  :
+import csv
+import math
+
+def read_data():
+    numbers = []
+    try:
+        with open(FILE_NAME, "r") as f:
+            reader = csv.reader(f)
+            for row in reader:
+                for value in row:
+                    numbers.append(float(value))
+    except:
+        print("File not found!")
+    return numbers
+
+def process_data(numbers):
+    total = sum(numbers)
+    avg = total / len(numbers) if len(numbers) > 0 else 0
+
+    print("\nNumbers:", numbers)
+    print("Sum:", total)
+    print("Average:", avg)
+
+    print("\nSquare Roots:")
+    for num in numbers:
+        print("√", num, "=", math.sqrt(num))
+
+
+nums = read_data()
+
+if nums:
+    process_data(nums)
+else:
+    print("No data to process!")
+
+10. Result :
+The program successfully reads data from a file, processes it using external modules, and displays the output.
+
+11. Conclusion :
+This project demonstrates how external modules and file handling can be combined to build efficient data processing applications in Python.
+The program successfully reads data from a file, processes it using external modules, and displays the output.
