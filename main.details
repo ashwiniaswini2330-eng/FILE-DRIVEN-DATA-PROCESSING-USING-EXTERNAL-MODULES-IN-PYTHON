@@ -1,0 +1,35 @@
+import csv
+import math
+
+def read_data():
+    numbers = []
+    try:
+        with open(FILE_NAME, "r") as f:
+            reader = csv.reader(f)
+            for row in reader:
+                for value in row:
+                    numbers.append(float(value))
+    except:
+        print("File not found!")
+    return numbers
+
+def process_data(numbers):
+    total = sum(numbers)
+    avg = total / len(numbers) if len(numbers) > 0 else 0
+
+    print("\nNumbers:", numbers)
+    print("Sum:", total)
+    print("Average:", avg)
+
+    print("\nSquare Roots:")
+    for num in numbers:
+        print("√", num, "=", math.sqrt(num))
+
+
+nums = read_data()
+
+if nums:
+    process_data(nums)
+else:
+    print("No data to process!")
+
